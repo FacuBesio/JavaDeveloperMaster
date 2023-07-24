@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+  	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+
+	<!-- Se asigna la Clase que se quiere hacer un Bean en 'class', y luego se asigna un 'id' para identenficarlo. -->
+	<bean id="mundo" class="com.mitocode.beans.Mundo"> 
+		<!-- se ingresa directamente el nombre del atributo al que se quiere acceder. Spring se encargará de acceder al mismo a través de los
+		métodos set y get.  -->
+		<property name="saludo" value="Hola Mundo"> 
+
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+  	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+
+	<bean id="persona" class="com.mitocode.beans.Persona"> 
+<!-- 	Se invoca el Constructor de la Clase, y va ingresando los Parametros en el constructor acorde a como  
+		los vayamos declarando. Obivamente el Constructor debe existir en la Clase para poder ser invocado.
+		En el caso de que haya mas de un Constructor, se debera ir indicando el tipo de Dato mediante
+		'type' y Spring buscara el primer constructor que coincida con los tipo de datos declarados 
+		de forma predeterminada. En caso de no declarar los Parámetros exactamente igual el Constructor, 
+		mediante la palabra reservada 'index' se podra indicar la posicion de Parámetro a la que corresponde
+		dentro del Constructor.   -->
+		<constructor-arg index="0" type="int" value="1"> </constructor-arg>
+		<constructor-arg index="2" type="String" value="MitoCode"> </constructor-arg>
+		<constructor-arg index="1" type="String" value="Jaime"> </constructor-arg>
+	</bean>
+
+</beans>

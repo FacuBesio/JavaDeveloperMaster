@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+  	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    "
+    >
+<!-- 
+• Autowired:
+
+Con 'autowire' no hace falta declarar los atributos y hacer la referencia. 
+
+	<property name="pais" ref="pais"></property>
+ 
+ Si posteriormente se declaran los atributos bajo el mismo 'id' la propiedad 'autowire' los reconocera 
+ automaticamente. Es decir, utlizando el autowire dentro del tag <bean>, a través de Spring vamos a indicar
+ que autimacamente busque si hay algun Bean que coincida con los Atributos.
+ . El valor 'byName' indica que la busqueda de coincidencia se realice por el nombre del Atributo como referencia.
+ Es decir, Spring va a buscar si hay algun 'bean' declarado con el 'id' igual al nombre de los Objetos que todavía 
+ este sin incializar.
+ <bean id="nombre_Objeto"> </bean>
+   
+ . El valor 'byType' indica que la busqueda de coincidencia se realice por el tipo de Dato al que pertenece el 
+ Atributo como referencia, es decir, a la Clase que pertenece el Objeto. 
+ Es decir, Spring va a buscar si hay algun 'bean' declarado con la 'class' igual al la Clase que pertenecen los 
+ Objetos que todavía este sin incializar.
+ <bean id="nombre_Objeto" class="ruta_Clase_Objeto"> </bean>
+ Por este motivo en esta configuración, hay que tener en cuenta que si existen más de un Objeto que pertencen
+ a una misma Clase, no se puede utlizar con autowire dos objetos diferentes de la misma Clase.  
+
+• init-method y destroy-method:
+Para declarar la inicializacion y destruccion de cada Bean en forma indidual se debera indicar en el tag
+'<bean>' a través de los métodos 'init-method=""' y 'destroy-method=""'. Se deberá indicar solamente 
+el nombre del método que se encuentre dentro de la Clase. Por ejemplo init-method="initBean", hace 
+referencia al método initBean(); 	
+
+Para declarar la inicializacion y destruccion de cada Bean se puede hacer de una manera goblal con los métodos 
+'default-init-method=""' y 'default-destroy-method=""' desde el tag '<beans>'. Es decir, de esta forma se le 
+asignara a cada Bean creado por default los métodos init y destroy declarados en el tag '<beans>'.
+
+
+ -->
+	<bean id="persona" class="com.mitocode.beans.Persona" autowire="byType"
+		init-method="initBean" destroy-method="destroyBean"	
+	> 
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Jaime"></property>
+		<property name="apodo" value="MitoCode"></property>
+<!-- 		<property name="pais" ref="pais"></property> -->
+<!-- 		<property name="ciudad" ref="ciudad"></property> -->
+	</bean>
+	
+	<bean id="pais" class="com.mitocode.beans.Pais"> 
+		<property name="nombre" value="Peru"></property>
+	</bean>
+	
+	<bean id="ciudad" class="com.mitocode.beans.Ciudad"> 
+		<property name="nombre" value="Lima"></property>
+	</bean>
+	
+</beans>

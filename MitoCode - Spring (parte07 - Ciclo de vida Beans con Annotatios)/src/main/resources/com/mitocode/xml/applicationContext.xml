@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+  	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    "
+    >
+<!-- Para trabajar con los métodos PostConstruct y PreDestroy con Annotatios, simplemente se debe ingresar en la 
+Clase y colocar la Annotations correspondiente sobre el método que queramos declarar como PostConstruct o PreDestroy,
+y agregar la dependencia 
+ 	<dependency>
+	   <groupId>javax.annotation</groupId>
+	   <artifactId>jsr250-api</artifactId>
+	   <version>1.0</version>
+  	</dependency>
+
+Finalmente crear un <bean> con org.springframework.context.annotation.CommonAnnotationBeanPostProcessor, para
+indicarle a Spring que utilice dichas anotaciones, ya que no son propias y son propias del Stantar de Java. -->  
+ 
+
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor "></bean>
+    
+	<bean id="persona" class="com.mitocode.beans.Persona" autowire="byName"> 
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Jaime"></property>
+		<property name="apodo" value="MitoCode"></property>
+<!-- 		<property name="pais" ref="pais"></property> -->
+<!-- 		<property name="ciudad" ref="ciudad"></property> -->
+	</bean>
+	
+	<bean id="pais" class="com.mitocode.beans.Pais"> 
+		<property name="nombre" value="Peru"></property>
+	</bean>
+	
+	<bean id="ciudad" class="com.mitocode.beans.Ciudad"> 
+		<property name="nombre" value="Lima"></property>
+	</bean>
+	
+</beans>

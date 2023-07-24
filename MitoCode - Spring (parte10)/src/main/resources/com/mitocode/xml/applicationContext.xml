@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+  	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    "
+    >
+
+<!-- La Annotation @Component necesita de un tag adicional en el archivo xml. 
+
+
+
+Mediante '<context:component-scan base-package=""> </context:component-scan>' en al atributo 
+'base-package' vamos a indicar a Spring el paquete o la ruta donde van a detectarse todas las 
+anotaciones o esteretipos que son propios de Spring. 
+-->
+<context:component-scan base-package="com.mitocode.beans">	</context:component-scan>
+
+</beans>

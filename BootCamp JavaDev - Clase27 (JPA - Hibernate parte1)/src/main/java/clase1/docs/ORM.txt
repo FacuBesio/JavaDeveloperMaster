@@ -1,0 +1,29 @@
+ORM = Object Relational Mapping - Mapeo de Objeto Relacional.
+
+Un ORM te permite conventir los datos de tus objetos en un formato correcto para poder guardar la información en un base de 
+datos (mapeo), donde los datos que se encuentran en nuestra aplicación quedarán vinculados a la base de datos (persistencia). 
+Es decir, a través de un ORM vamos a poder trabajar con nuestros objetos en memoria y posteriormente se encagará de las acciones 
+de persistencia en una base de datos (CRUD).  
+Tiene como objetivo manejar la persistencia de objetos de una aplicación dentro de una base de datos, en forma automatizada y
+transparente. Utiliza metadatos para describir la relación entre el modelo de clases y el modelo de tablas.
+El ORM mas conocido que hay en Java es Hibernate. Nuestro ORM entonces será el erncargado de traducir las peticiones de nuestra 
+aplicación y nuestra base de datos. Desde la aplicación vamos a escribir en un lenguaje que comprenda nuestro ORM, y luego este
+se encargará de transmitir esa información a la base de datos. Como existen diferentes ORM y por lo tanto diferentes lenguajes de
+ORM, es que se comenzo a utilizar JPA (Java Persistence API) como interfaz. La idea es siempre programar con bajo acoplamiento, 
+para que ninguna aplicación quede ligada directamente al uso de un ORM en específico. Con ese objetivo se empezó a utlizar
+JPA como interfaz interlocutora entre nuestra aplicación y nuestros ORM. Es decir, JPA es un conjunto de Interfaces que dice como 
+es el lenguaje de persistencia de datos y los ORM estarán obligados a implementar dicho conjunto de métodos. Por lo tanto, 
+desde nuestra aplicación vamos a escribir orientado a JPA y mediante polimorfismo en el caso de que querer cambiar de un ORM a 
+otro se podrá reazlizar ya que todos responden a la misma Interfaz (JPA). A su vez los ORM también estaran capacitados para 
+negociar con diferentes tipos de bases de datos.
+
+Todos los componentes de La API se encuentran definidos en el paquete javax.persistence.
+
+
+JDBC
+ORM (Hibernate)
+JPA
+SPRING DATA JPA
+
+Dentro de cada ORM vamos a tener como mínimo un Driver de la Base de Datos y un Dialecto. Dicha información generalemente la vamos
+a indicar en el application.properties ubicado generalmente en ../src/main/resources/.

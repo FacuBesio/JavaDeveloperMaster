@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+
+<!--Mediante el xmlns:th se hace referencia a thymeleaf, para indicar que vamos a tener las caracteristicas de este motor de plantilla en nuesto 
+archivo html-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!--	Mediante 'th:' vamos a invocar a Thymeleaf. Esta es la estructura para recuperar variables en Thymeleaf '${variable}'.
+		En este caso la variable 'name' hace referencia al objeto name declarado en el contralador. model.addAttribute("name", name);-->
+	    <p th:text="'Hello, ' + ${name} + '!'" />
+</body>
+</html>

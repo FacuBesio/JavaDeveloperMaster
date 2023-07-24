@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+  	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+
+	<!-- Aqui definimos el generador de Beans que nos va a proporcionar los 
+		Objetos. En este caso seria un Contenedor que nos proporcionara BEANS del 
+		tipo Empleado. Al Bean hay que darle un 'alias' (un identificador). Le damos 
+		un nombre al Bean y la ruta de la cual queremos crear objetos. -->
+
+	<bean id="miEmpleado"
+		class="com.eduit.clase1.entidades.JefeEmpleado">
+		<constructor-arg ref="miInformeTipo2"></constructor-arg>
+	</bean>
+
+	<!-- Creamos un Bean para la Inyeccion de Dependencias -->
+	<bean id="miInforme" class="com.eduit.clase1.entidades.Informes">
+	</bean>
+
+	<bean id="miInformeTipo2"
+		class="com.eduit.clase1.entidades.InformesTipo2">
+	</bean>
+
+
+</beans>
