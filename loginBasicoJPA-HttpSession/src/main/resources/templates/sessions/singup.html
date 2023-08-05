@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>LOGIN</title>
+<div th:replace="~{components\Animations\bootstrapContext.html :: bootstrapLink}"></div>
+</head>
+<body>
+ <h1> SING UP - Registrarse por primera vez</h1>
+ 	<form class="form-horizontal" th:action="@{/login/save}" method="post" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>ID</td> <td><input type="number" name="id"/></td>
+			</tr>
+			<tr>
+				<td>USER</td> <td><input type="text" name="nombreUsuario"/></td>
+			</tr>
+			<tr>
+				<td>PASSWORD </td> <td><input type="password" name="password"/></td>
+			</tr>
+			<tr >
+				<td>ROL </td> 
+				<td >
+					<select name ="idRol">
+						<option th:each="rol: ${roles}" 
+								th:value="${rol.id}" 
+								th:text="${rol.nombreRole}"> 
+						</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td> <input type="submit" value="Registrarse"/> <input type="reset" value="Borrar"/> </td>
+			</tr>
+		</table>
+	</form>
+	
+	 <div class="col-lg-3 col-md-6 mb-4" >
+ 		<table>
+ 			<tr>
+				<th>Id</th> 
+				<th>Usuario</th>
+				<th>Contraseña</th>  
+				<th>Rol</th>
+			</tr>
+			<tr th:each="usuario: ${usuariosLogin}">
+				<td><p class="card-text" th:text="${usuario.id}"></p></td> 
+				<td><p class="card-text" th:text="${usuario.nombreUsuario}"></p></td>
+				<td><p class="card-text" th:text="${usuario.password}"></p></td>  
+				<td><p class="card-text" th:text="${usuario.role}"></p></td>
+				
+			</tr>
+		</table>
+  	</div> 
+  	<a th:href="@{/}" class="btn btn-success">Volver</a>
+          
+      
+</body>
+</html>

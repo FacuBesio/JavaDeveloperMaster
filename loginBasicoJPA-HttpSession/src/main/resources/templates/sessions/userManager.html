@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<div th:replace="~{components\Animations\bootstrapContext.html :: bootstrapLink}"></div>
+</head>
+<body>
+	<h1> Sistema Administrador de Usuarios</h1>
+	
+	<a th:href="@{/singup}" class="btn btn-success">Crear</a>
+	
+	<a th:href="@{/updateUser}" class="btn btn-success">Editar</a>
+	
+	<a th:href="@{/deleteUser}" class="btn btn-success">Borrar</a>
+	
+	<a th:href="@{/}" class="btn btn-success">Volver</a>
+	
+	<div class="col-lg-3 col-md-6 mb-4" >
+ 		<table>
+ 			<tr>
+				<th>Id</th> 
+				<th>Usuario</th>
+				<th>Contraseña</th> 
+				<th>Rol</th> 
+			</tr>
+			<tr th:each="usuario: ${usuariosLogin}">
+				<td><p class="card-text" th:text="${usuario.id}"></p></td> 
+				<td><p class="card-text" th:text="${usuario.nombreUsuario}"></p></td>
+				<td><p class="card-text" th:text="${usuario.password}"></p></td>  
+				<td><p class="card-text" th:text="${usuario.rol}"></p></td>
+				
+			</tr>
+		</table>
+  	</div>
+
+</body>
+</html>

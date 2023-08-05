@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ROLES</title>
+<div th:replace="~{components\Animations\bootstrapContext.html :: bootstrapLink}"></div>
+</head>
+<body>
+ <h1> CREAR ROLES</h1>
+ 	<form class="form-horizontal" th:action="@{/login/saveRole}" method="post" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>ID</td> <td><input type="number" name="id"/></td>
+			</tr>
+			<tr>
+				<td>ROL</td> <td><input type="text" name="nombreRol"/></td>
+			</tr>
+			<tr>
+				<td>DESCRIPCION </td> <td><input type="text" name="descripcion"/></td>
+			</tr>
+			
+			<tr>
+				<td> <input type="submit" value="Crear"/> <input type="reset" value="Clear"/> </td>
+			</tr>
+		</table>
+	</form>
+	
+	 <div class="col-lg-3 col-md-6 mb-4" >
+ 		<table>
+ 			<tr>
+				<th>Id</th> 
+				<th>Rol</th>
+				<th>Descripcion</th>  
+				
+			</tr>
+			<tr th:each="rol: ${roles}">
+				<td><p class="card-text" th:text="${rol.id}"></p></td> 
+				<td><p class="card-text" th:text="${rol.nombreRol}"></p></td>
+				<td><p class="card-text" th:text="${rol.descripcion}"></p></td>  
+			</tr>
+		</table>
+  	</div> 
+  	<a th:href="@{/}" class="btn btn-success">Volver</a>
+          
+      
+</body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"> -->
+<web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee">
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <description></description>
+    <display-name>Login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.eduit.webApi.servlets.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ArticuloAll</display-name>
+    <servlet-name>ArticuloAll</servlet-name>
+    <servlet-class>com.eduit.webApi.services.ArticuloAll</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArticuloAll</servlet-name>
+    <url-pattern>/ArticuloAll</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>9</session-timeout>
+  </session-config>
+  <welcome-file-list>
+    <welcome-file> index.jsp</welcome-file>
+  </welcome-file-list>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error404.html</location>
+  </error-page>
+  <servlet>
+    <description></description>
+    <display-name>ArticuloAlta</display-name>
+    <servlet-name>ArticuloAlta</servlet-name>
+    <servlet-class>com.eduit.webApi.services.ArticuloAlta</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArticuloAlta</servlet-name>
+    <url-pattern>/ArticuloAlta</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ArticuloAltaSet</display-name>
+    <servlet-name>ArticuloAltaSet</servlet-name>
+    <servlet-class>com.eduit.webApi.test.ArticuloAltaSet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArticuloAltaSet</servlet-name>
+    <url-pattern>/ArticuloAltaSet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ArticuloLikeDescripcion</display-name>
+    <servlet-name>ArticuloLikeDescripcion</servlet-name>
+    <servlet-class>com.eduit.webApi.services.ArticuloLikeDescripcion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArticuloLikeDescripcion</servlet-name>
+    <url-pattern>/ArticuloLikeDescripcion</url-pattern>
+  </servlet-mapping>
+</web-app>

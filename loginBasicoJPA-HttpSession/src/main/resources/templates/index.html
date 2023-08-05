@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>LOGIN</title>
+<div th:replace="~{components\Animations\bootstrapContext.html :: bootstrapLink}"></div>
+</head>
+<body>
+
+<h1> Administrador de Roles</h1>
+<a th:href="@{/login/createRole}" class="btn btn-success">Crear Rol</a>
+
+ <h1> SING UP - Registrarse por primera vez</h1>
+<a th:href="@{/login/singup}" class="btn btn-success">SING UP</a>
+
+ <h1> LOGIN - Ingresar a la Sesion</h1>
+<a th:href="@{/login}" class="btn btn-success">LOGIN</a>
+
+ <h1> Administrador de Usuarios</h1>
+<a th:href="@{/login/userManager}" class="btn btn-success">Admin Users</a>
+
+
+ <h1> LINK DE ACCESOS</h1>
+
+<a th:href="@{/administrador}">/administrador</a>
+
+<br>
+<a th:href="@{/administrador/test}">/administrador/test</a>
+
+<br>
+<a th:href="@{/administrador/test2}">/administrador/test2</a>
+
+<br>
+<a th:href="@{/usuario}">/usuario</a>
+
+<br>
+<a th:href="@{/usuario/test}">/usuario/test</a>
+
+<br>
+<a th:href="@{/usuario/test2}">/usuario/test2</a>
+
+</body>
+</html>

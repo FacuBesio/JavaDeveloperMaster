@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee">
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <description></description>
+    <display-name>Test</display-name>
+    <servlet-name>Test</servlet-name>
+    <servlet-class>com.eduit.webApi.servlets.Test</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Test</servlet-name>
+    <url-pattern>/Test</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Session_Set</display-name>
+    <servlet-name>Session_Set</servlet-name>
+    <servlet-class>com.eduit.webApi.servlets.Session_Set</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Session_Set</servlet-name>
+    <url-pattern>/Session_Set</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Calculadora</display-name>
+    <servlet-name>Calculadora</servlet-name>
+    <servlet-class>com.eduit.webApi.servlets.Calculadora</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Calculadora</servlet-name>
+    <url-pattern>/Calculadora</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Session_Get</display-name>
+    <servlet-name>Session_Get</servlet-name>
+    <servlet-class>com.eduit.webApi.servlets.Session_Get</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Session_Get</servlet-name>
+    <url-pattern>/Session_Get</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.eduit.webApi.servlets.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  
+  <session-config>
+    <session-timeout>9</session-timeout>
+  </session-config>
+  
+  <welcome-file-list>
+    <welcome-file> index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/error404.html</location>
+  </error-page>
+  
+</web-app>
