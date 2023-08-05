@@ -49,20 +49,20 @@ public class ErrorsController {
 	
 	//# GET
 	
-	@GetMapping("/invalidRole")
-	public String invalidRole(Model model) {
+	@GetMapping("/invalidSession")
+	public String invalidSession(Model model) {
 		List<Usuario> usuarios = usuarioLoginService.findAll();
-		String mensaje="******* ESTAS INTENTANDO INGRESAR A UNA FUNCION QUE NO CORRESPONDE CON TU PERFIL ********";
+		String mensaje="- ADVERTENCIA: Estas intentando ingresar sin iniciar sesión. Por favor inicia una sesión. - ";
         model.addAttribute("usuarios", usuarios);
         model.addAttribute("mensaje", mensaje);
 		return "sessions/login";
 	}
 	
-	
-	@GetMapping("/invalidSession")
-	public String sessionInvalid(Model model) {
+	@GetMapping("/invalidRole")
+	public String invalidRole(Model model) {
 		List<Usuario> usuarios = usuarioLoginService.findAll();
-		String mensaje="******* ESTAS INTENTANDO INGRESAR SIN INICIAR SESION. POR FAVOR INICIA SESION. ********";
+		String mensaje="- ADVERTENCIA: Estas intentando ingresar a una funcionalidad que no corresponde con tu perfil. "
+						+ "Por favor inicia una sesión con otro perfil o verifica el tipo de permisos que posee tu usuario . - ";
         model.addAttribute("usuarios", usuarios);
         model.addAttribute("mensaje", mensaje);
 		return "sessions/login";

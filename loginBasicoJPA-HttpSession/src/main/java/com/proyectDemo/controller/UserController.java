@@ -17,7 +17,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.support.RequestContext;
 
-import com.proyectDemo.login.Validator;
+import com.proyectDemo.loginUtils.Validator;
 import com.proyectDemo.model.Role;
 import com.proyectDemo.model.Usuario;
 import com.proyectDemo.model.dto.UsuarioDTO;
@@ -56,7 +56,7 @@ public class UserController {
 	
 	
 	
-	//# GET
+	//#### GET ####
 	//. INICIO DE SESION - USUARIO - BIENVENIDA:
 	@GetMapping("")
 	public String login(Model model) {
@@ -80,20 +80,20 @@ public class UserController {
 				return "usuarios/welcomeUser";
 			}else {
 				List<Usuario> usuarios = usuarioLoginService.findAll();
-				String mensaje = "******** Estas intentando ingresar a una funcionalidad de Usuario con un perfil de Administrador ********";
+				String mensaje = " - ADVERTENCIA: Estas intentando ingresar a una funcionalidad de 'USUARIO' con un perfil de 'ADMINISTRADOR'. -";
 		        model.addAttribute("usuarios", usuarios);
 		        model.addAttribute("mensaje", mensaje);
 				return "sessions/login";
 			}
 		} catch (NullPointerException e) {
 			List<Usuario> usuarios = usuarioLoginService.findAll();
-			String mensaje = "******** Estas intentando ingresar sin iniciar Sesion. Por favor inicia sesion. ********";
+			String mensaje = "- ADVERTENCIA: Estas intentando ingresar sin iniciar sesión. Por favor inicia una sesión. -";
 	        model.addAttribute("usuarios", usuarios);
 	        model.addAttribute("mensaje", mensaje);
 			return "sessions/login";
 		} catch (Exception e) {
 			List<Usuario> usuarios = usuarioLoginService.findAll();
-			String mensaje = "******** Ha oucrrido un error. Por favor inicia sesion nuevamente ********";
+			String mensaje = "- ADVERTENCIA: Ha ocurrido un error. Por favor inicia una sesión nuevamente. -";
 	        model.addAttribute("usuarios", usuarios);
 	        model.addAttribute("mensaje", mensaje);
 			return "sessions/login";
@@ -105,44 +105,20 @@ public class UserController {
 	
 	
 	@GetMapping("/test")
-	public String test(Model model)  throws IOException{
-//		try {
-			validator.ValidadorUsuario();
-//			String userName = session.getAttribute("userName").toString();
-//			String roleName = session.getAttribute("roleName").toString();
-//			model.addAttribute("userName", userName);
-//			model.addAttribute("roleName", roleName);
-//			return "usuarios/TestUser";
-//		} catch (Exception e) {
-//			List<Usuario> usuarios = usuarioLoginService.findAll();
-//			String mensaje = "******** Ha oucrrido un error. Por favor inicia sesion nuevamente ********";
-//	        model.addAttribute("usuarios", usuarios);
-//	        model.addAttribute("mensaje", mensaje);
-//			return "sessions/login";
-//		}
-		return "usuarios/TestUser";
+	public String getUserTest(Model model)  throws IOException{
+
+			validator.ValidadorUsuario(model);
 		
+		return "usuarios/TestUser";
 	}
 	
 	
 	@GetMapping("/test2")
-	public String test2(Model model)  throws IOException{
-//		try {
-			validator.ValidadorUsuario();
-//			String userName = session.getAttribute("userName").toString();
-//			String roleName = session.getAttribute("roleName").toString();
-//			model.addAttribute("userName", userName);
-//			model.addAttribute("roleName", roleName);
-//			return "usuarios/TestUser2";
-//		} catch (Exception e) {
-//			List<Usuario> usuarios = usuarioLoginService.findAll();
-//			String mensaje = "******** Ha oucrrido un error. Por favor inicia sesion nuevamente ********";
-//	        model.addAttribute("usuarios", usuarios);
-//	        model.addAttribute("mensaje", mensaje);
-//			return "sessions/login";
-//		}
+	public String getUserTest2 (Model model)  throws IOException{
+
+			validator.ValidadorUsuario(model);
+
 		return "usuarios/TestUser2";
-		
 	}
 	
 

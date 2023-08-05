@@ -47,7 +47,7 @@ public class LoginController {
 	
 	
 	
-	//# GET
+	//#### GET ####
 	
 	//. LOGIN - INGRESAR (Con usuario ya existente) - 
 	@GetMapping("")
@@ -57,25 +57,6 @@ public class LoginController {
         model.addAttribute("usuarios", usuarios);
         model.addAttribute("mensaje", mensaje);
     	return "sessions/login";
-	}
-	
-	@GetMapping("/invalidRole")
-	public String invalidRole(Model model) {
-		List<Usuario> usuarios = usuarioLoginService.findAll();
-		String mensaje="******* ESTAS INTENTANDO INGRESAR A UNA FUNCION QUE NO CORRESPONDE CON TU PERFIL ********";
-        model.addAttribute("usuarios", usuarios);
-        model.addAttribute("mensaje", mensaje);
-		return "sessions/login";
-	}
-	
-	
-	@GetMapping("/invalidSession")
-	public String sessionInvalid(Model model) {
-		List<Usuario> usuarios = usuarioLoginService.findAll();
-		String mensaje="******* Estas intentando ingresar sin iniciar Sesion. Por favor inicia sesion. ********";
-        model.addAttribute("usuarios", usuarios);
-        model.addAttribute("mensaje", mensaje);
-		return "sessions/login";
 	}
 	
 	//. SING UP - REGISTRAR USUARIO (crear usuario, cuando se ingresa por primera vez) - 
@@ -107,7 +88,7 @@ public class LoginController {
 	}
 	
 	
-	// # POST
+	// #### POST ####
 	@PostMapping("/save")
     public String save(Usuario usuario, @RequestParam int idRol) {
     	LOGGER.info("usuarioLogin: {}" + usuario);

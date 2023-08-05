@@ -1,4 +1,4 @@
-package com.proyectDemo.login;
+package com.proyectDemo.loginUtils;
 
 import java.io.IOException;
 import java.util.List;
@@ -31,18 +31,24 @@ public class Validator {
 	@Autowired
 	HttpSession session;
 	
-	
-	public void ValidadorAdministrador() throws IOException  {
-			
-		session = request.getSession();
+
+	public void ValidadorAdministrador(Model model) throws IOException  {
 		
 		try {
+			session = request.getSession();
+			
 			boolean sessionActive = Boolean.parseBoolean(session.getAttribute("session").toString());
 			Role role = (Role) session.getAttribute("role");
-
-			if (!(role.getNombreRole().equals("admin") && sessionActive == true)) {
-				response.sendRedirect("/error/invalidSession");
-			} 
+			String roleName = role.getNombreRole();
+			String userName = session.getAttribute("userName").toString();
+			
+			if (role.getNombreRole().equals("admin") && sessionActive == true) {
+				session.setAttribute("roleName", roleName);
+				model.addAttribute("roleName", roleName);
+				model.addAttribute("userName", userName);
+			} else {
+				response.sendRedirect("/error/invalidRole");
+			}
 		} catch (NullPointerException e) {
 			response.sendRedirect("/error/invalidSession");
 		} catch (Exception e) {
@@ -50,17 +56,24 @@ public class Validator {
 		}
 	}
 	
-	public void ValidadorUsuario() throws IOException {
+	
+	public void ValidadorUsuario(Model model) throws IOException {
 		
 		try {
 			session = request.getSession();
 			
 			boolean sessionActive = Boolean.parseBoolean(session.getAttribute("session").toString());
 			Role role = (Role) session.getAttribute("role");
+			String roleName = role.getNombreRole();
+			String userName = session.getAttribute("userName").toString();
 			
-			if (!(role.getNombreRole().equals("user") && sessionActive == true)) {
-				response.sendRedirect("/error/invalidSession");
-			} 
+			if (role.getNombreRole().equals("user") && sessionActive == true) {
+				session.setAttribute("roleName", roleName);
+				model.addAttribute("roleName", roleName);
+				model.addAttribute("userName", userName);
+			} else {
+				response.sendRedirect("/error/invalidRole");
+			}
 		} catch (NullPointerException e) {
 			response.sendRedirect("/error/invalidSession");
 		} catch (Exception e) {
