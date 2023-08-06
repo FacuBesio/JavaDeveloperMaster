@@ -5,22 +5,17 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.server.ServletServerHttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.servlet.support.RequestContext;
-
+import com.proyectDemo.loginUtils.Validator;
 import com.proyectDemo.model.Role;
 import com.proyectDemo.model.Usuario;
 import com.proyectDemo.services.IRolService;
 import com.proyectDemo.services.IUsuarioLoginService;
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -44,7 +39,8 @@ public class LoginController {
 	@Autowired
 	HttpSession session;
 	
-	
+	@Autowired
+	Validator validator;
 	
 	
 	//#### GET ####
@@ -72,7 +68,7 @@ public class LoginController {
 	
 	//. CREAR ROLES/PERFILES (para crear poder crear un Usuario, primero se deberá crear al menos un tipo rol).
 	@GetMapping("/createRole")
-	public String crearRol(Model model) {
+	public String crearRole(Model model) {
 		List<Role> roles = rolService.findAll();
         model.addAttribute("roles", roles);
 		return "sessions/createRole";
@@ -108,53 +104,6 @@ public class LoginController {
 	@PostMapping("/userValidator")
 	public String validarUsuario(@RequestParam String nombreUsuario, @RequestParam String password, Model model) {
 		
-		List<Usuario> list = usuarioLoginService.findAll();
-		String mensaje="";
-		boolean testigo = false;
-		String url = "sessions/login";
-		
-		for(Usuario userLog : list) {
-			//# Verificacion USUARIO
-			if(userLog.getNombreUsuario().equals(nombreUsuario)) {
-				
-				//# Verificacion CONTRASEÑA
-				if(userLog.getPassword().equals(password)) {
-					testigo = true;
-									
-					session = request.getSession();
-					session.setAttribute("userName", userLog.getNombreUsuario());
-		    		session.setAttribute("role", userLog.getRole());
-		    		session.setAttribute("session", true);
-		    							
-					//. Verificacion ROL ---> En esta instancia el Usuario y la Contraseña son CORRECTOS.
-					String role= userLog.getRole().getNombreRole();	
-					switch (role){   
-						case "admin":
-							url = "redirect:/administrador";
-			                break;
-						case "user":
-							url = "redirect:/usuario";
-			                break;
-						default:
-							url = "errors/welcomeUserSinRol";
-			                break; 
-					}
-				}else{
-					mensaje = "Contraseña incorrecta";
-					testigo = false;
-					model.addAttribute("usuarios", list);
-					model.addAttribute("mensaje", mensaje);
-					break;
-				}
-			}else if(!testigo){
-				mensaje = "Usuario '" +nombreUsuario+ "' inexistente - " + String.valueOf(testigo);
-				testigo = false;
-			}
-			model.addAttribute("usuarios", list);
-			model.addAttribute("mensaje", mensaje);
-		}
-		return url;
+		return	validator.validadorUserAndPassword(nombreUsuario, password, model);
 	}
-	
-
 }

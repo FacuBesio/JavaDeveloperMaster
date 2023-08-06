@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.proyectDemo.model.Role;
-import com.proyectDemo.repository.IRolRepository;
+import com.proyectDemo.repository.IRoleRepository;
 
 @Service
 public class RolImplement implements IRolService{
 
 	@Autowired
-	IRolRepository rolRepo;	
+	IRoleRepository rolRepo;	
 	
 	
 	@Override
