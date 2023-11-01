@@ -20,7 +20,7 @@ Por default las  duran 30 minutos, es decir, que una vez iniciada la sesion los 
 quedarán guardados la memoria ram, y si durante ese lapso de tiempo no se detecta actividad en la Session, 
 se dejará de reservar espacio en memoria para esos datos y será destruidos de la memoria ram (no de la base 
 de datos). En el archivo web.xml  generalmente ubicado en '/.../src/main/webapp/WEB-INF/web.xml' vamos a 
-poder cambiar esta configuración a través de las etiquetas <session-config> y <session-timeout>.
+poder cambiar esta configuración a traves de las etiquetas <session-config> y <session-timeout>.
 */
 
 public class Session_Set extends HttpServlet {

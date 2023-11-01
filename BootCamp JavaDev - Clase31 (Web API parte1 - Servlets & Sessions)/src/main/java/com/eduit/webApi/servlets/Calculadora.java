@@ -28,7 +28,7 @@ public class Calculadora extends HttpServlet {
 	    			int nro1 = Integer.parseInt(request.getParameter("nro1")); // La respuesta del Response retorna en formato String, por 
 	        		int nro2 = Integer.parseInt(request.getParameter("nro2")); // este motivo hay que parsear la respuesta para un int.
 	        		int suma = nro1 + nro2;
-	        		out.println(". SUMA = "+suma);
+	        		out.println(". SUMA = "+nro1+" + "+nro2+" = "+suma);
 				} catch (NumberFormatException e) {
 					out.println("**** Por favor ingrese nro1 y nro2 en el Request ****");
 				}catch (Exception e) {

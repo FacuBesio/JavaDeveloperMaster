@@ -3,7 +3,7 @@
  ¨¨¨¨¨¨¨¨¨¨¨¨¨¨
 Base de Datos = Esquema = Schemas (ingles)
 
-Entonces una 'Base de Datos' es un conjunto de datos organizados y estructurados según un determinado modelo de información, que 
+Una 'Base de Datos' es un conjunto de datos organizados y estructurados según un determinado modelo de información, que 
 refleja la relación entre ellos. Un 'motor' de Bases de Datos, también conocido por sus siglas SGBD ó DBMS/RDBMS, es un sistema que 
 permite la creación, gestión y administración de Bases de Datos. Los usuarios pueden acceder a la información usando herramientas 
 específicas de consulta y/o de generación de informes. 
@@ -16,9 +16,9 @@ cantidades.
 
 Hoja de datos --> Carpertas (conjunto de 'Hojas de Datos') --> Ficheros (conjunto de 'Carpertas'). 
 
-Por un lado tendremos el 'Fichero' que sera como el motor de la Base de Datos, dentro de ellos habra 'Carpetas' que estaran
-respresentadas por las Tablas,y finalmente dentro de las Tablas habra 'Hojas de Datos' las cuales estaran respresentadas mediantes 
-los 'Registros' y estaran ordenados por 'Filas' y 'Columnas'.
+Por un lado tendremos el 'Fichero' que sera como la Base de Datos, dentro de ellos habra 'Carpetas' que estaran
+respresentadas por las Tablas, y finalmente dentro de las Tablas habra 'Hojas de Datos' las cuales estaran respresentadas mediantes 
+los Registros, que estaran ordenados por 'Filas' y 'Columnas'.
 
 . Sistemas de Administración de Bases de Datos Relacionales: son un tipo de software específico, dedicado a servir de interfaz entre 
 el motor de bases de datos, la base de datos, el usuario y las aplicaciones que la utilizan. El propósito general de estos sistemas es
@@ -35,7 +35,7 @@ CRUD en la base de datos y muchas otras características.
 
 - CONTROL DE CONCURRENCIA
 Debido a que los sistemas de bases de datos brindan servicios en forma simultánea a un conjunto de usuarios y desarrolladores, que 
-normalmente acceden desde fuera de la máquina donde reside la base de datos (conectados vía red local, Internet, Intranet, etc.), se 
+normalmente acceden desde fuera de la máquina donde reside la base de datos, se 
 hace imprescindible contar con un control de concurrencia que verifique la consistencia de cada operación (transacción) y asegure que 
 no se creen conflictos al momento de realizar una operación de escritura en un mismo registro en forma simultánea.
 
@@ -58,7 +58,7 @@ Tabla CLientes:   |  (CampoA) Nombre  |  |  (CampoB) Apellido  |  |    (CampoC) 
      Fila 2         Maria (Registro2A)      Alegre(Registro2B)      28 años (Registro2C)		
      Fila 3        Esteban (Registro3A)     Gomez (Registro3B)      28 años (Registro3C)		
 
-Cada 'Campo' posee un tipo de dato asignado, y por lo tanto, el 'Registros' ingresado deben ser coincidente. 
+Cada 'Campo' posee un tipo de dato asignado, y por lo tanto, el 'Registro' ingresado deben ser coincidente. 
 
 
 • TIPOS DE DATOS:
@@ -76,6 +76,8 @@ Cada 'Campo' posee un tipo de dato asignado, y por lo tanto, el 'Registros' ingr
 
 -datetime (fecha y hora)	  ----> aaaa-mm-dd HH:MM:SS	
 
+-blob (texto)				  ----> se utliza para texto case sensitive.
+
 *Restricciones y Modificadores de Datos: 
 -NULL     --> Indica que un Campo puede tener o no un Registro. 		
 -NOT NULL --> Sirve para establecer que un Campo debe tener si o si un registro al momento de completarse. 
@@ -84,8 +86,8 @@ Cada 'Campo' posee un tipo de dato asignado, y por lo tanto, el 'Registros' ingr
 La expresión NULL significa "dato desconocido" o "valor inexistente". No es lo mismo que un valor 0 en un campo numérico ó una cadena 
 de texto vacía. A veces, puede desconocerse o no existir el dato correspondiente a algún campo de un registro. En estos casos decimos 
 que el campo puede contener valores nulos.
-En contraposición, tenemos campos que no pueden estar vacíos jamás, por ejemplo, los campos que identifican cada registro, como los 
-códigos de identificación, que son Clave Primaria.
+En contraposición, tenemos campos que no pueden estar vacíos jamás, por ejemplo, los campos que identifican cada registro 
+que son Clave Primaria.
 Por defecto, si no lo aclaramos en la creación de la tabla, los campos permiten valores nulos.
 
 
@@ -97,8 +99,8 @@ en singular. Ayudara a que al leerlo se pueda distingir facilmente uno de otro. 
 
 . RESTRICCIONES DE LAS TABLAS
 - Los nombres de las tablas deben ser únicos en la base de datos.
--Los nombres de las columnas debe ser únicos en la tabla.
--No podrán existir dos registros con el mismo valor de la clave primaria.
+- Los nombres de las columnas debe ser únicos en la tabla.
+- No podrán existir dos registros con el mismo valor de la clave primaria.
 
 
 ************ CREACION DE BASE DE DATOS ************
@@ -116,21 +118,22 @@ Las TABLAS seran completadas con Resgistro (filas - Valores).
 
 .Ejemplo
 	CREATE TABLE autos (
-	    id_auto INT NOT NULL,	-- Se declara primero el 'identificador' y luego el 'tipo de dato'. Cada Atributo de la tabla se separa 
-	    marca VARCHAR (50),     -- con "," (coma).            	
+	    id_auto INT NOT NULL,	-- Se declara primero el 'identificador' y luego el 'tipo de dato'. Cada Atributo de la tabla se 
+	    marca VARCHAR (50),     -- separa con "," (coma).            	
 	    color VARCHAR (50),
 	    modelo VARCHAR (50),
-	    patente INT UNSIGNED,
+	    patente VARCHAR (10),
 	    fecha_fabricacion DATE,                 
 	);
 
 
 ●  PRIMARY KEY (PK)
 Una Tabla puede tener una Columna o combinación de Columnas cuyos valores identifican de forma única a cada Registro de la Tabla.
-Estas Columnas se denominan 'Claves Principales'. Se puede crear una Clave Principal mediante la definición de una restricción 
+Estas Columnas se denominan 'Clave Primaria'. Se puede crear una Clave Primaria mediante la definición de una restricción 
 PRIMARY KEY cuando cree o modifique una tabla. Una Tabla sólo puede tener una única PRIMARY KEY y ninguna Columna a la que se aplique 
 una restricción PRIMARY KEY puede aceptar valores NULL. 
-En conclusion, una Clave Primaria es un campo o combinacion de mas de un campo, que aseguran que no va haber dos filas repetidas.
+En conclusion, una Clave Primaria es un campo o combinacion de campos, que aseguran que no va haber dos filas repetidas ya que sera
+un valor unico de cada registro.
 
 .'auto_increment'  --> Contador automatico. 
 El motor de base de datos incrementará automáticamente su valor. Una tabla sólo puede tener un campo autoincremental y éste tiene que 
@@ -140,7 +143,7 @@ formar parte de la Clave Principal (PRIMARY KEY).
 	CREATE TABLE autos (
 	    id_auto INT NOT NULL AUTO_INCREMENT,
 	    ...
-	    PRIMARY KEY (id_auto),    -- A través de la palabra reservada Primary Key se declara la Clave Principal de la Tabla.               
+	    PRIMARY KEY (id_auto),    -- A través de la palabra reservada Primary Key se declara la Clave Primaria de la Tabla.               
 		...
 	);
 
@@ -157,16 +160,16 @@ formar parte de la Clave Principal (PRIMARY KEY).
 
 
 ● FOREING KEY (FK)
-Para relacionar una Tabla con otra ambas deberán tener si o si Clave Primaria, y que a su vez una de las Claves Primaria sea Campo de 
-la otra Tabla. A dicha Clave Primaria se la llamara Clave Forenea.
+Para relacionar una Tabla con otra ambas deberán tener si o si Clave Primaria. Cuando una de las Claves Primaria sea
+campo de la otra Tabla se la llamara Clave Forenea.
 
-
+ FOREIGN KEY (id_curso) REFERENCES cursos(id_curso)
 
 
 ● UNIQUE KEY (UQ)
-La restricción UNIQUE en SQL se utiliza para garantizar que no se inserten valores duplicados en una columna específica o (combinación
+La restricción UNIQUE se utiliza para garantizar que no se inserten valores duplicados en una columna específica o (combinación
 de columnas) y que a su vez estas no formen parte de la CLAVE PRIMARIA. Es decir, vamos a utilizar Unique Key para indicar que en 
-dicho Campo no se admitirán Datos Duplicados, sin ser parte de la Clave Primaria. A diferencia de Primary Key, Unique Key permite un 
+dicho Campo no se admitirán datos duplicados. A diferencia de Primary Key, Unique Key permite un 
 valor nulo. 
 
 .Ejemplo: 
@@ -185,10 +188,11 @@ valor nulo.
 
 
 • ENUM: 
-Nos permitira elegir entre ciertos valores  posibiles para completar el Campo selecionado.
+Nos permitira elegir unicamente entre ciertos valores posibiles para completar el Campo selecionado, limitando de esta forma
+la cantidad de opciones posibles para seleccionar como valor. 
 
 Tienen las siguientes características:
-- Sólo puede contener un valor.
+- Sólo se puede seleccionar un valor.
 - Se puede definir una lista de hasta 65.535 valores distintos.
 - Si se permiten valores null, éste será el valor predeterminado, y si no se define un valor predeterminado con DEFAULT, será el 
 primer valor de la lista.
@@ -207,19 +211,15 @@ primer valor de la lista.
 Para insertar datos en una Tabla utilizaremos la sentencia INSERT. Con ella podemos ir añadiendo registros uno a uno, o añadir tantos 
 registros como deseemos en una sola sentencia.
 
+'INSERT INTO NombreTabla VALUES (Valor1, ..., ValorX);'
+
 'INSERT INTO NombreTabla (Columna1, ..., ColumnaX) VALUES (Valor1, ..., ValorX);'
 
-. NombreTabla: la tabla en la que se van a insertar las filas o registros.
-. (Campo1, …, CampoX): representa el campo o campos en los que vamos
-a introducir valores.
-. (Valor1, …, ValorX): representan los valores que se van a almacenar
-en cada campo.
-
-Los Valores deben corresponder con cada uno de los Campos que aparecen, tanto en el Tipo de Dato como en el orden en el que se van a asignar. 
+Los Valores deben corresponder con cada uno de los Campos que aparecen, tanto en el Tipo de Dato como en el orden en el que se van a 
+asignar. 
 Si un campo no está en la lista, se almacenará dentro de éste el valor NULL, siempre y cuando el campo admita valores null.
 Si un campo tiene 'auto_increment' no es necesario ingresarlo, ya que se incrementa automaticamente. 
-Se pueden ingresar todos los Datos o especificar solamente los Campos que se van a ingresar. El orden de los Campos obviamente tiene 
-que coincidir con el orden que vamos a ingresar los datos. 
+Se pueden ingresar todos los Datos o especificar solamente los Campos que se van a ingresar.
 
 
 • ELIMINAR BASE DE DATOS / TABLA
@@ -314,6 +314,8 @@ Otra forma de cambiar el nombre de una tabla es:
 DROP DATABASE IF EXISTS clase01;
 CREATE DATABASE clase01;
 USE clase01; -- Indicamos la Base de Datos a utilizar. Si se evita este paso va a generar error. Este comando es de caracter OBLIGATORIO. 
+
+#SHOW DATABASES;
 
 -- • AUTOS:
 DROP TABLE IF EXISTS autos;

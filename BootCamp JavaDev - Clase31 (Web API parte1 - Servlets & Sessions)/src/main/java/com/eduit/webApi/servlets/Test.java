@@ -1,7 +1,6 @@
 package com.eduit.webApi.servlets;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -11,8 +10,8 @@ import java.io.PrintWriter;
 /*Generalmente al crear un Servlet con el asistente del IDE, el mismo nombre del Servlet será el mismo endpoint para 
  ser llamado dessde HTTP. En este caso sera '/Test'.
  En el caso de querer modificarlo, habra que ir al archivo web.xml generalmente ubicado en '/.../src/main/webapp/WEB-INF/web.xml'. 
- Este archivo es conocido como archivo el de configuración de despliege en el servidor. Es decir, se indica mediante este 
- archivo al Servidor como deberá desplegar a aplicación, como por ejemplo mediante que endpoint sera llamado cada Servlets 
+ Este archivo es el archivo de configuración de despliege en el servidor. Es decir, se indica mediante este 
+ archivo al Servidor como deberá desplegar a aplicación, como por ejemplo mediante que endpoint sera llamado cada Servlet
  y donde encontrarlo, como tambien las configuraciones de las Sessions y otras mas.
  Es importante recordar que generalmente los IDE al crear un nuevo Servlet se va a encargar de registrar en el mismo en 
  archivo web.xml el ruteo correspondiente, pero en el caso de crear el Servlet nosotros mismo de forma manual, se deberá 
