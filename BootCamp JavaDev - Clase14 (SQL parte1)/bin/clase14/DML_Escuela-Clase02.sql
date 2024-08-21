@@ -43,14 +43,12 @@ USE escuela;
     */
     
 ## profesores
-	INSERT INTO profesores(correo, apellido, nombre, tipo_doc, num_doc)
+	INSERT INTO profesores(email, apellido, nombre, tipo_doc, num_doc)
     VALUES 
 		('cristiandracedo@hotmail.com', 'racedo', 'cristian', 1, 12345678),
         ('habia_una_vez@fantasia.com', 'gutierrez', 'luis', 2, 48123498),
         ('erase_una_vez_en_mexico@balada.com', 'sans', 'alejandro', 1 ,8973912);
-SELECT * FROM profesores;
 
-	SELECT * FROM alumnos;
 	DELETE FROM alumnos WHERE id_alumno = 3; -- elimina los registros que cumplan la condicion
 	UPDATE alumnos SET correo = NULL WHERE id_alumno = 3; -- actualiza los registros en donde se cumpla la condicion
 	DELETE FROM profesores; -- elimina todos los registros (no reinicia los contadores)

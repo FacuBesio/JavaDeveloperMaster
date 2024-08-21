@@ -22,7 +22,7 @@ public class Auto_Encapsulado {
 	}
     
     
-    // MÉTODOS
+    // METODOS
     void acelerar(int kilometros){                         
         velocidad+=kilometros;
         if(velocidad>100) velocidad=100;
