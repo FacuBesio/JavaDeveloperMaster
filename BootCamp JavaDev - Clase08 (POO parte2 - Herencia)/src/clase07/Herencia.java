@@ -1,17 +1,17 @@
 /*
  												● HERENCIA 
 												  ¨¨¨¨¨¨¨¨
-En los 'Lenguajes Orientados a Objetos' se pueden HEREDAR caracteristicas (Atributos y Métodos). La idea de HERENCIA es 
-permitir la creación de 'Nuevas Clases' basadas en 'Clases Existentes'. Se produce a partir de dos Clases relacionadas.     
-Es decir, que habra una 'Clase_Hija' que HEREDARA de otra 'Clase_Padre' sus Métodos y Atributos. La 'Clase_Principal' se 
-denomina 'Clase_Padre' o 'Super_Clase'. La 'Clase' que hereda se denomina 'Subclase' o 'Clase_Hija'. Esto representa la 
+En los 'Lenguajes Orientados a Objetos' se pueden HEREDAR características (atributos y métodos). La idea de HERENCIA es 
+permitir la creación de 'nuevas clases' basadas en 'clases existentes'. Se produce a partir de dos clases relacionadas.     
+Es decir, que habra una 'Clase_Hija' que HEREDARA de otra 'Clase_Padre' sus métodos y atributos. La 'Clase_Principal' se 
+denomina 'Clase_Padre' o 'Super_Clase'. La clase que hereda se denomina 'Subclase' o 'Clase_Hija'. Esto representa la 
 relación ES-UN:
 - Un Compacto ES-UN Auto.
 - Un Camión ES-UN Auto.
         
-Las 'Clases Hijas' entonces tendran los mismos Atributos y Métodos que su 'Clase Padre', mas sus Atributos y/o Métodos 
-particulares que los distingan. Los Atributos y Métodos heredados no se vuelven a codificar, son heredados. Entonces en las 
-'Clases Padres' se indicaran los Atributos y/o Metodos mas generales, y se ira especificando hacia sus 'Clases Hijas'. 
+Las 'Clases Hijas' entonces tendrán los mismos atributos y métodos que su clase padre, más sus atributos y/o métodos 
+particulares. Los atributos y métodos heredados no se deben volver a declarar, son heredados. Entonces en las 
+clases padres se indicarán los atributos y métodos más generales, y se ira especificando hacia sus clases hijas. 
 Para indicar la 'Herencia' al momento de declarar la 'Clase_Hija' vamos a  utilizar la palabra reservada 'extends' seguido de 
 la 'Clase_Padre'.        
         
@@ -25,11 +25,11 @@ public class Clase_Hija extends Clase_Padre {
     
 
 • CONSTRUCTORES EN HERENCIA
-Algo que pasa con los constructores es que no se heredan. Cuando se Instancia un Objeto de una Clase Hija se ejecutara en 
-primer lugar el Constructor de la Clase Padre y luego el Constructor de la Clase Hija, y esto hay que representarlo al momento 
-de declarar el Constructor de la Clase Hija. 
+Algo que pasa con los constructores es que no se heredan. Cuando se instancia un objeto de una clase hija se ejecutará en 
+primer lugar el constructor de la clase padre y luego el constructor de la clase hija. Esto hay que representarlo al momento 
+de declarar el Constructor de la clase hija. 
 Esto se hace con la sentencia 'super()', que invoca a los constructores de la Superclase. Es decir, al declarar el 
-Constructor de la Clase Hija vamos a poner en la primer linea de forma obligatoria la palabra reservada 'super()' con los 
+constructor de la clase hija vamos a poner en la primer línea de forma obligatoria la palabra reservada 'super()' con los 
 Parametros del Constructor Padre correspondientes, y luego se ingresaran los Parametros del Constructor de la Clase Hija. 
 Es importante recordar que los Constructores deben coicidir y existir. Es decir, no puedo invocar un constructor vacio desde 
 la Clase Hija si no existe en la Clase Padre, y si se ingresa con Parametros deben coincidir. 
@@ -53,7 +53,7 @@ public class Clase_Hija extends Clase_Padre {
 
 ● POLIMORFISMO - SOBRECARGA Y SOBREESCRITURA DE MÉTODOS
   ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
-Polimorfismo desde el concepto cientifico se refiere a aquello que puede adoptar multiples formas. En POO sera la posibilidad 
+Polimorfismo desde el concepto cientifico se refiere a aquello que puede adoptar multiples formas. En POO será la posibilidad 
 de que un 'Método' adopte MAS DE UNA FORMA, que pueda modificar su comportamiento de acuerdo a una determinada necesidad o 
 situación. Es decir, que un mismo 'Método' pueda ser utilizado desde distintas Clases, y que a su vez cada 'Clase' pueda 
 modificar el coportamiento del mismo.

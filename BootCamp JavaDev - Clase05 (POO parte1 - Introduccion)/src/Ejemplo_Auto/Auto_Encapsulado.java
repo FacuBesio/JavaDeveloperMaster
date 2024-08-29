@@ -1,49 +1,47 @@
 package Ejemplo_Auto;
 
 public class Auto_Encapsulado {
-	
+
 	// ATRIBUTOS
-    private String marca;
-    private String modelo;
-    private String color;
-    private int velocidad;
-	
-    
-    // CONSTRUCTORES
-    public Auto_Encapsulado() {
-		
+	private String marca;
+	private String modelo;
+	private String color;
+	private int velocidad;
+
+	// CONSTRUCTORES
+	public Auto_Encapsulado() {
+
 	}
-    
-    public Auto_Encapsulado(String marca, String modelo, String color, int velocidad) {
+
+	public Auto_Encapsulado(String marca, String modelo, String color, int velocidad) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.color = color;
 		this.velocidad = velocidad;
 	}
-    
-    
-    // METODOS
-    void acelerar(int kilometros){                         
-        velocidad+=kilometros;
-        if(velocidad>100) velocidad=100;
-    }
-    
-            
-    void frenar(){                                         
-        velocidad-=10;      
-        if(velocidad<0) velocidad=0;
-    }
-    
-    int obtenerVelocidad(){        
-        return velocidad;           
-    }
 
-   
-    String getEstado(){
-        return marca+" "+modelo+" "+color+", "+velocidad;
-    }
-    
-    public String getMarca() {
+	// METODOS
+	void acelerar(int kilometros) {
+		velocidad += kilometros;
+		if (velocidad > 100)
+			velocidad = 100;
+	}
+
+	void frenar() {
+		velocidad -= 10;
+		if (velocidad < 0)
+			velocidad = 0;
+	}
+
+	int obtenerVelocidad() {
+		return velocidad;
+	}
+
+	String getEstado() {
+		return marca + " " + modelo + " " + color + ", " + velocidad;
+	}
+
+	public String getMarca() {
 		return marca;
 	}
 
@@ -75,10 +73,4 @@ public class Auto_Encapsulado {
 		this.velocidad = velocidad;
 	}
 
-	
-    
-    
-
 }
-
-
